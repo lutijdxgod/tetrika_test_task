@@ -1,5 +1,5 @@
 import csv
-from solution import write_to_csv
+from solution import write_to_csv  # pylint: disable=E0611
 
 
 def test_write_to_csv():

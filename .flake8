@@ -1,4 +1,5 @@
 [flake8]
+per-file-ignores = 02/conftest.py: E501, 02/solution.py: E501
 max-line-length = 80
 extend-ignore = F403, F405, F401, E203
 exclude = .venv

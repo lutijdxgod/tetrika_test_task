@@ -6,9 +6,9 @@ BASE_URL = "https://ru.wikipedia.org"
 LETTERS = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
-def fetch_page(url: str) -> str:
+def fetch_page(url_to_fetch: str) -> str:
     """Fetch a URL and return it's contents."""
-    response = requests.get(url, timeout=5)
+    response = requests.get(url_to_fetch, timeout=5)
     response.raise_for_status()
     return response.text
 
@@ -54,7 +54,7 @@ if __name__ == "__main__":
         fetched_text = fetch_page(url)
         beast_count_for_page, url = parse_page(text=fetched_text)
 
-        for letter, count in beast_count_for_page.items():
-            total_beast_count[letter] += count
+        for first_letter, count in beast_count_for_page.items():
+            total_beast_count[first_letter] += count
 
     write_to_csv(beast_count_dict=total_beast_count)
